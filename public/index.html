@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WebRTC App</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: row;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #left-column, #middle-column, #right-column {
+      flex: 1;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      padding: 10px;
+      overflow: auto;
+    }
+    video {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    #middle-column {
+      display: flex;
+      flex-direction: column;
+    }
+    #chat-box {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      overflow-y: auto;
+    }
+    #log-box {
+      overflow-y: auto;
+      height: 100%;
+      white-space: pre-wrap;
+      font-size: 0.9em;
+    }
+    #controls {
+      display: flex;
+      justify-content: space-between;
+    }
+    #chat-controls {
+      display: flex;
+      margin-top: 10px;
+    }
+    input[type="text"] {
+      flex: 1;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Left Column: Video Section -->
+  <div id="left-column">
+    <video id="localVideo" autoplay muted></video>
+    <div id="controls">
+      <button id="muteButton">Mute</button>
+      <button id="hideVideoButton">Hide Video</button>
+      <button id="startCallButton">Start Call</button>
+    </div>
+    <video id="remoteVideo" autoplay></video>
+  </div>
+
+  <!-- Middle Column: Text Chat -->
+  <div id="middle-column">
+    <div id="chat-box"></div>
+    <div id="chat-controls">
+      <input type="text" id="chatInput" placeholder="Type a message">
+      <button id="sendButton">Send</button>
+    </div>
+  </div>
+
+  <!-- Right Column: Log Section -->
+  <div id="right-column">
+    <h3>Event Log</h3>
+    <div id="log-box"></div>
+  </div>
+
+  <script src="webrtc-app.js"></script>
+</body>
+</html>
